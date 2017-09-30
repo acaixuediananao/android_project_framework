@@ -5,6 +5,7 @@ Base Framework With Dagger2+Butterknife+Retrofit2 Of Android App develop
 
 接口格式说明：
 
+``` javascript
 {
   "success": true,
   "error": [
@@ -24,3 +25,4 @@ Base Framework With Dagger2+Butterknife+Retrofit2 Of Android App develop
     "has_open": "opened"
   }
 }
+```
