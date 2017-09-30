@@ -19,7 +19,7 @@ public class ResponseResult<T>  implements Serializable{
      */
 
     private boolean success;
-    private ErrorBean error;
+    private List<ErrorBean> error;
     private T data;
 
     public boolean isSuccess() {
@@ -30,11 +30,11 @@ public class ResponseResult<T>  implements Serializable{
         this.success = success;
     }
 
-    public ErrorBean getError() {
+    public List<ErrorBean> getError() {
         return error;
     }
 
-    public void setError(ErrorBean error) {
+    public void setError(List<ErrorBean> error) {
         this.error = error;
     }
 

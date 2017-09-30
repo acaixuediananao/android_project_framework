@@ -19,8 +19,8 @@ public abstract class ResponseCallBack<T extends ResponseResult> implements Call
             if (t.isSuccess()){
                 onSuccess(t);
             }else {
-                if (t.getError() != null){
-                    onFailure(t.getError().getMsg());
+                if (t.getError() != null && t.getError().size() != 0){
+                    onFailure(((ErrorBean) t.getError().get(0)).getMsg());
                 }else {
                     onFailure("参数错误");
                 }
