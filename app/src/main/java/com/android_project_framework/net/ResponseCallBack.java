@@ -14,11 +14,20 @@ import retrofit2.Response;
 public abstract class ResponseCallBack<T extends ResponseResult> implements Callback<T> {
     @Override
     public void onResponse(Call<T> call, Response<T> response) {
+        T t = ((T) response.body());
+        if (response.raw().code() == 200){
+            if (t.isSuccess()){
+                onSuccess(t);
+            }else {
+                if (t.getError() != null){
+                    onFailure(t.getError().getMsg());
+                }else {
+                    onFailure("参数错误");
+                }
 
-        if (response.raw().code() == 200 && response.body().getError() == null){
-            onSuccess(((T) response.body().getData()));
+            }
         }else {
-            onFailure(response.body().getError().getMsg());
+            onNoResponse(response.raw().code() , response.message());
         }
     }
 
@@ -31,4 +40,6 @@ public abstract class ResponseCallBack<T extends ResponseResult> implements Call
     public abstract  void onSuccess(T t);
 
     public abstract void onFailure(String msg);
+
+    public abstract void onNoResponse(int code , String msg);
 }

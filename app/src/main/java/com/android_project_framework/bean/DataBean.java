@@ -9,7 +9,7 @@ import java.util.List;
  * Created by xiaolong.wei on 2017/9/13.
  */
 
-public class DataBean extends ResponseResult<DataBean> implements Serializable {
+public class DataBean implements Serializable {
 
 
 

@@ -1,6 +1,7 @@
 package com.android_project_framework.service;
 
 import com.android_project_framework.bean.DataBean;
+import com.android_project_framework.net.ResponseResult;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -13,5 +14,5 @@ import retrofit2.http.Header;
 public interface ApiService {
 
     @GET("account/membership/exchange")
-    Call<DataBean> getData(@Header("t") String t);
+    Call<ResponseResult<DataBean>> getData(@Header("t") String t);
 }
